@@ -1,0 +1,16 @@
+{% extends "main.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="line">
+    <div class="row" style="width:100%;">
+        Home
+    </div>
+</div>
+<div class="line">
+    <div id='home-label' class="row" style="width:100%;">
+        There's not much to do here except to go to the <a href="{% url 'store' %}">store management</a> page or the <a href="{% url 'product' %}">product management</a> page...
+    </div>
+</div>
+{% endblock %}

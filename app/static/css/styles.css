@@ -1,0 +1,249 @@
+/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/@fortawesome/fontawesome-free/css/all.css";
+
+body {
+	margin:0px;
+	background-color: #eee;
+    font-family: 'Noto Serif JP', sans-serif;
+    font-size: xx-large;
+    color:#555;
+}
+
+a {
+    margin-left:10px;
+    margin-right:10px;
+    font-family: 'Fjalla One', sans-serif;
+    text-decoration: none;
+    color:#f88;
+}
+
+a:link {
+    color:#f88;
+}
+
+a:visited {
+    color:#f88;
+}
+
+a:hover {
+    color:#fcc;
+    cursor: pointer;
+}
+
+a:active {
+    color:#f88;
+}
+
+button {
+    font-family: 'Fjalla One', sans-serif;
+	border-style:none;
+    padding:5px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    background-color:#f33;
+    color:#eee;
+    box-shadow: 2px 2px 4px grey;
+}
+
+button:active {
+    background-color: #b22;
+    box-shadow: -2px -2px 4px grey;
+}
+
+input {
+	font-family: 'Noto Serif JP', sans-serif;
+	border-style:solid;
+    padding:5px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    width:80%;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #ddd;
+    color:#333;
+}
+
+textarea {
+	font-family: 'Noto Serif JP', sans-serif;
+	border-style:solid;
+    padding:5px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    width:80%;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #ddd;
+    color:#333;
+}
+
+select {
+	font-family: 'Noto Serif JP', sans-serif;
+	border-style:solid;
+    padding:5px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    width:80%;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #ddd;
+    color:#333;
+    background-color:#fff;
+}
+
+hr {
+    border-color:#888;
+    border-width:1px;
+    border-style:dashed;
+}
+
+table {
+    font-family: 'Fjalla One', sans-serif;
+}
+
+td {
+    padding:10px;
+}
+
+.line {
+    margin:20px;
+    margin-top:20px;
+}
+
+.row {
+    display:inline-block;
+}
+
+.header {
+    box-shadow: 0px 0px 5px grey;
+    background-color:#fff;
+}
+
+.header-title {
+    margin:auto;
+    font-size:50px;
+    width:40%;
+}
+
+.header-links {
+    margin:auto;
+    margin-top:20px;
+    font-size:20px;
+    width:60%;
+}
+
+.small-font {
+    font-size:20px;
+}
+
+.body-content {
+    margin:auto;
+    margin-top:40px;
+    width:60%;
+    padding:20px;
+}
+
+/*Alert widget*/
+.alert {
+    position: fixed;
+    top:10px;
+    right:10px;
+    font-size:medium;
+}
+
+.alert-error {
+    padding:15px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    background-color: #f33;
+    color:#fff;
+    box-shadow: 0px 0px 5px grey;
+}
+
+.alert-warning {
+    padding:15px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    background-color: #fa3;
+    color:#fff;
+    box-shadow: 0px 0px 5px grey;
+}
+
+.alert-success {
+    padding:15px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    background-color: #393;
+    color:#fff;
+    box-shadow: 0px 0px 5px grey;
+}
+
+/*Confirmation widget*/
+.confirmation-dialog {
+    background-color:#eee;
+    border-style: solid;
+    border-color: #888;
+    box-shadow: 0px 0px 5px grey;
+    padding:10px;
+    position:fixed;
+    top:40%;
+    left:40%;
+    width:20%;
+    height:10%;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    font-size: large;
+}
+
+.confirmation-background {
+    background-color:rgba(0,0,0,0.4);
+    position:fixed;
+    top:0px;
+    left:0px;
+    width:100%;
+    height:100%;
+}
+
+.confirmation-title {
+    width:80%;
+    margin:auto;
+}
+
+.confirmation-options {
+    width:40%;
+    margin:auto;
+}
+
+.confirmation-option-yes {
+    margin:5px;
+    margin-top:15px;
+}
+
+.confirmation-option-no {
+    margin:5px;
+    margin-top:15px;
+}
+
+/*Table component*/
+.table {
+    font-size: medium;
+}
+
+.table-head {
+    border-bottom-color:#888;
+    border-bottom-style:solid;
+    border-bottom-width:1px;
+    padding:5px;
+    margin:0px;
+}
+
+tbody tr:nth-child(odd) {
+    background-color:#fff;
+    padding:5px;
+    margin:0px;
+}
+
+tbody tr:nth-child(even) {
+    background-color:#fee;
+    padding:5px;
+    margin:0px;
+}

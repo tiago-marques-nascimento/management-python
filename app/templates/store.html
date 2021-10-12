@@ -1,0 +1,54 @@
+{% extends "main.html" %}
+
+{% load date_converter %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<div class="line">
+    <div class="row" style="width:100%;">
+        Available Stores
+    </div>
+</div>
+<hr/>
+<div class="line">
+    <div class="row" style="width:100%;">
+        <button onClick="window.location.href = '{% url 'store' %}?orderByName=true'"><i class="fas fa-search"></i> Order users by name</button>
+    </div>
+</div>
+<div class="line" id='users-table'>
+    <div class="row" style="width:100%;">
+        <div class="table">
+            <div class="line table-head">
+                <div class="row" style="width:40%">
+                    Name
+                </div>
+                <div class="row" style="width:40%">
+                    Launched at
+                </div>
+                <div class="row">Actions</div>
+            </div>
+            {% for store in stores %}
+            <div>
+                <div class="row" style="width:40%">
+                    {{ store.name }}
+                </div>
+                <div class="row" style="width:40%">
+                    {{ store.launched_at|date_converter }}
+                </div>
+                <div class="row">
+                    <a class="table-button-view" href="{% url 'store_view' store.id %}"><i class="fas fa-eye"></i></a>
+                    <a class="table-button-edit" href="{% url 'store_edit' store.id %}"><i class="fas fa-edit"></i></a>
+                    <a class="table-button-remove" onClick="openConfirmationWidget('{% url 'store_remove' store.id %}')"><i class="fas fa-trash"></i></a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<div class="line">
+    <div class="row" style="width:100%;">
+        <button onClick="window.location.href = '{% url 'store_create' %}'"><i class="fas fa-plus"></i> New store</button>
+    </div>
+</div>
+{% endblock %}

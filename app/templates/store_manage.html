@@ -1,0 +1,49 @@
+{% extends "main.html" %}
+
+{% load date_converter %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<form id="login_form" action="" method="post">
+    {% csrf_token %}
+    <div class="line">
+        <div class="row" style="width:100%;">
+            User
+        </div>
+    </div>
+    <hr/>
+    <div class="line">
+        <div class="row" style="width:100%;">
+            <input id="name" name="name" type="text" placeholder="Name" maxlength="100" value="{{ store.name }}" {% if is_view %} disabled {% endif %}>
+        </div>
+    </div>
+    <div class="line">
+        <div class="row" style="width:50%;">
+            <input id="launched_at" name="launched_at" type="text" placeholder="Launched at" maxlength="10" pattern="[0-9]{2}/[0-9]{2}/[0-9]{4}" title="dd/MM/YYYY" value="{{ store.launched_at|date_converter }}" {% if is_view %} disabled {% endif %}>
+        </div>
+    </div>
+    <hr/>
+    <div class="line">
+        <div class="row" style="width:50%;">
+            Available Products
+        </div>
+        {% for productAsKeyValue in productsAsKeyValue %}
+        <div class="row" style="width:50%;">
+            <input id="product_{{ productAsKeyValue.key }}" name="product_{{ productAsKeyValue.key }}" type="checkbox" value="Y" {% if productAsKeyValue.value %} checked {% endif %} {% if is_view %} disabled {% endif %} style="width:5%"><label class="small-font">{{ productAsKeyValue.key }}</label>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="line" id="user-buttons">
+        {% if not is_view %}
+        <div class="row" style="width:8%;">
+            <button type="submit" id="user-confirm-button"><i class="fas fa-thumbs-up"></i> Confirm</button>
+        </div>
+        {% endif %}
+        <div class="row" style="width:8%;">
+            <button type="button" id="user-return-button" onClick="window.location.href = '{% url 'store' %}'"><i class="fas fa-thumbs-down"></i> Return</button>
+        </div>
+    </div>
+</form>
+{% endblock %}

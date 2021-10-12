@@ -1,0 +1,65 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Management</title>
+        <base href="/">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="favicon.ico">
+        <link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet"> 
+        <link href="https://fonts.googleapis.com/css?family=Noto+Serif+JP" rel="stylesheet">
+        <link rel="stylesheet" href="{% static 'fontawesome/css/all.css' %}">
+        <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    </head>
+    <body>
+        <!--Login widget-->
+        {% if is_logged %}
+        <div class="login-widget">
+            Hello {{ subject }}, welcome to <a href="{% url 'home' %}">User Management</a>. Click <a href="{% url 'logout' %}">here</a> to log out...
+        </div>
+        {% endif %}
+
+        <!--Page content-->
+        {% block content %}{% endblock %}
+
+        <!--Alert widget-->
+        {% if alerts is not None %}
+        <div class="alert">
+            {% for alert in alerts %}
+            <div>
+                <div class="{{ alert.alertTypeClass }}">
+                    {{ alert.alertTypeDescription }}:
+                    {{ alert.alertMessage }}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        <!--Confirmation widget-->
+        <form id="confirmation_form" action="" method="post" style="display:none">
+            {% csrf_token %}
+            <div class="confirmation-background">
+                <div class="confirmation-dialog">
+                    <div class="confirmation-title">Do you confirm this action?</div>
+                    <div class="confirmation-options">
+                        <input id="confirmation_form_response" name="confirmation_form_response" type="hidden">
+                        <button type="button" class="confirmation-option-yes" onClick="
+                            document.getElementById('confirmation_form_response').value = 'Y';
+                            document.getElementById('confirmation_form').submit();">
+                            Yes
+                        </button>
+                        <button type="button" class="confirmation-option-no" onClick="
+                            document.getElementById('confirmation_form_response').value = 'N';
+                            document.getElementById('confirmation_form').submit();">
+                            No
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </body>
+    <script type="text/javascript" src="{% static 'js/script.js' %}"></script>
+</html>
